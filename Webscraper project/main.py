@@ -61,7 +61,7 @@ driver.quit()
 my_data_df = pd.DataFrame.from_dict(dataSets, orient = 'columns', dtype = 'str')
 my_data_df.to_csv('pandas_data.csv', encoding='utf-8', index = "False")
 
-
+my_data_df.head()
 
 
 
