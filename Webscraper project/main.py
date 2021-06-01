@@ -5,7 +5,7 @@ from datetime import datetime
 import math
 import pandas as pd
 
-DRIVER_PATH = "C:\\Users\\staya\\chromedriver"
+DRIVER_PATH = "C:\\Users\\jrkni\\AppData\\Local\\Programs\\Python\\Python39\\Projects\\Webscraper-main\\SendToSmolLaptop\\SendToSmolLaptop\\chromedriver"
 BASE_URL = 'https://raleigh.craigslist.org'
 
 options = Options()
@@ -35,9 +35,13 @@ def outputEntries(posts):
         dataSets["Post Date"].append(postDate)
         dataSets["Post Title"].append(postTitle)
         dataSets["Post URL"].append(postURL)
+<<<<<<< HEAD
 
         print(dataSets)
+=======
+>>>>>>> c8fb89c04d768912f7ae1bc924cef818b460c65d
 
+        print(dataSets)
 
 def stepthroughpages(posts, pageLink):
     driver.get(BASE_URL + pageLink)
@@ -64,15 +68,21 @@ my_data_df.to_csv('pandas_data.csv', encoding='utf-8')
 
 driver.quit()
 
+my_data_df = pd.DataFrame.from_dict(dataSets, orient = 'columns', dtype = 'str')
+my_data_df.to_csv('pandas_data.csv', encoding='utf-8', index = "False")
+
+my_data_df.head()
 
 
 
 
 
 
+<<<<<<< HEAD
 
 
-
+=======
+>>>>>>> c8fb89c04d768912f7ae1bc924cef818b460c65d
 #n = int(str(totalPosts))
         #for item in range(0, n):
             #calculations = (elapsedMinutes)
