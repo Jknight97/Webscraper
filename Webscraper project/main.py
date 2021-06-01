@@ -5,7 +5,7 @@ from datetime import datetime
 import math
 import pandas as pd
 
-DRIVER_PATH = "C:\\Users\\jrkni\\AppData\\Local\\Programs\\Python\\Python39\\Projects\\Webscraper-main\\SendToSmolLaptop\\SendToSmolLaptop\\chromedriver"
+DRIVER_PATH = "C:\\Users\\staya\\AppData\\Roaming\\Coderboy\\Python\\Python39\\Python Projects\\Projects\\chromedriver"
 BASE_URL = 'https://raleigh.craigslist.org'
 
 options = Options()
@@ -36,7 +36,7 @@ def outputEntries(posts):
         dataSets["Post Title"].append(postTitle)
         dataSets["Post URL"].append(postURL)
         
-print(dataSets)
+        print(dataSets)
 
 def stepthroughpages(posts, pageLink):
     driver.get(BASE_URL + pageLink)
