@@ -15,7 +15,7 @@ mydb = mysql.connector.connect(
 )
 
 mycursor = mydb.cursor()
-dataFrame = pd.read_csv(r'C:\\Users\\staya\\AppData\\Roaming\\Coderboy\\Python\\Python39\\Python Projects\\Projects\\pandas_data.csv')
+dataFrame = pd.read_csv(r'C:\\Users\\staya\\AppData\\Roaming\\Coderboy\\Python\\Python39\\Python Projects\\Projects\pandas_data.csv')
 data_file = open('pandas_data.csv')
 csv_data = csv.reader(data_file)
 
