@@ -1,11 +1,10 @@
 import csv
 import mysql.connector
-from main import outputEntries
-from main import totalPosts
+from main import elapsedMinutes
+from main import postDate
+from main import postTitle
+from main import postURL
 import pandas as pd
-
-
-outputEntries(totalPosts)
 
 mydb = mysql.connector.connect(
     host = "localhost",

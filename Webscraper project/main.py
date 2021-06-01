@@ -21,7 +21,6 @@ soup = ()
 find_all = []
 dataSets = {"Elapsed Minutes": [], "Post Date": [], "Post Title": [], "Post URL": []}
 
-
 def outputEntries(posts):
     for post in posts:
         titleDiv = post.find('a', class_='result-title')
@@ -37,6 +36,11 @@ def outputEntries(posts):
         dataSets["Post URL"].append(postURL)
         
         print(dataSets)
+
+elapsedMinutes = []
+postDate = []
+postTitle = []
+postURL = []
 
 def stepthroughpages(posts, pageLink):
     driver.get(BASE_URL + pageLink)
