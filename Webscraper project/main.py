@@ -35,13 +35,8 @@ def outputEntries(posts):
         dataSets["Post Date"].append(postDate)
         dataSets["Post Title"].append(postTitle)
         dataSets["Post URL"].append(postURL)
-<<<<<<< HEAD
-
-        print(dataSets)
-=======
->>>>>>> c8fb89c04d768912f7ae1bc924cef818b460c65d
-
-        print(dataSets)
+        
+print(dataSets)
 
 def stepthroughpages(posts, pageLink):
     driver.get(BASE_URL + pageLink)
@@ -78,11 +73,6 @@ my_data_df.head()
 
 
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> c8fb89c04d768912f7ae1bc924cef818b460c65d
 #n = int(str(totalPosts))
         #for item in range(0, n):
             #calculations = (elapsedMinutes)
