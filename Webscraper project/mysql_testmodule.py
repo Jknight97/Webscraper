@@ -4,6 +4,7 @@ from main import outputEntries
 from main import totalPosts
 import pandas as pd
 
+
 outputEntries(totalPosts)
 
 mydb = mysql.connector.connect(
@@ -14,7 +15,7 @@ mydb = mysql.connector.connect(
 )
 
 mycursor = mydb.cursor()
-dataFrame = pd.read_csv(r'C:\\Users\\staya\\AppData\\Roaming\\Coderboy\\Python\\Python39\\Python Projects\\Projects\pandas_data.csv')
+dataFrame = pd.read_csv(r'C:\\Users\\staya\\AppData\\Roaming\\Coderboy\\Python\\Python39\\Python Projects\\Projects\\pandas_data.csv')
 data_file = open('pandas_data.csv')
 csv_data = csv.reader(data_file)
 
@@ -24,7 +25,7 @@ for row in csv_data:
 	if skipHeader:
 		skipHeader = False
 		continue
-	mycursor.execute("""INSERT INTO parsed_data (elapsedMinutes, postDate, postTitle, postURL) VALUES ('%s', '%s', '%s', '%s')""")
+	mycursor.execute("""INSERT INTO parsed_data (elapsedMinutes, postDate, postTitle, postURL) VALUES ('%s', '%s', '%s', '%s')""" % (elapsedMinutes, postDate, postTitle, postURL))
 
 query = "LOAD DATA LOCAL INFILE 'C:\\Users\\staya\\AppData\\Roaming\\Coderboy\\Python\\Python39\\Python Projects\\Projects' INTO TABLE parsed_data FIELDS TERMINATED BY ',' LINES TERMINATED BY '\\n' IGNORE 1 LINES (elapsedMinutes, postDate, postTitle, postURL)"
 
