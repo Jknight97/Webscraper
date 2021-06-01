@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 from datetime import datetime
 import math
-#import pandas as pd
+import pandas as pd
 
 DRIVER_PATH = "C:\\Users\\staya\\chromedriver"
 BASE_URL = 'https://raleigh.craigslist.org'
@@ -19,21 +19,24 @@ post = []
 posts = ()
 soup = ()
 find_all = []
-
+dataSets = {"Elapsed Minutes": [], "Post Date": [], "Post Title": [], "Post URL": []}
 
 
 def outputEntries(posts):
-    for i, post in enumerate(posts):
+    for post in posts:
         titleDiv = post.find('a', class_='result-title')
-        postTitle = titleDiv.get_text()
-        postURL = titleDiv.get('href')
-        postDate = post.find('time', title_=[]).get_text()
+        postTitle = titleDiv.get_text().strip()
+        postURL = titleDiv.get('href').strip()
+        postDate = post.find('time', title_=[]).get_text().strip()
         postTimeText = post.find('time').get('datetime')
         postTime = datetime.strptime(postTimeText, '%Y-%m-%d %H:%M')
         elapsedMinutes = math.ceil((datetime.now() - postTime).total_seconds() / 60)
-        
+        dataSets["Elapsed Minutes"].append(elapsedMinutes)
+        dataSets["Post Date"].append(postDate)
+        dataSets["Post Title"].append(postTitle)
+        dataSets["Post URL"].append(postURL)
 
-        print(f'{elapsedMinutes}:  {postDate}:   {postTitle}:   {postURL}')
+        print(dataSets)
 
 
 def stepthroughpages(posts, pageLink):
@@ -54,6 +57,11 @@ print(f'{len(totalPosts)} results containing "{QUERY}"')
 outputEntries(totalPosts)
 
 
+
+my_data_df = pd.DataFrame.from_dict(dataSets, orient = 'columns', dtype = 'str')
+my_data_df.to_csv('pandas_data.csv', encoding='utf-8')
+
+
 driver.quit()
 
 
@@ -64,9 +72,7 @@ driver.quit()
 
 
 
-#my_data_df = pd.DataFrame.from_dict(my_data, orient = 'index', columns = ['Elapsed Minutes ', ' Post Date ', ' Post Title ', ' Post URL '])
-#my_data_df.to_csv('pandas_data.csv', encoding='utf-8')
-#my_data_df.head()
+
 #n = int(str(totalPosts))
         #for item in range(0, n):
             #calculations = (elapsedMinutes)
