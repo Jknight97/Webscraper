@@ -34,13 +34,14 @@ def outputEntries(posts):
         dataSets["Post Date"].append(postDate)
         dataSets["Post Title"].append(postTitle)
         dataSets["Post URL"].append(postURL)
-        
+
         print(dataSets)
 
-elapsedMinutes = []
-postDate = []
-postTitle = []
-postURL = []
+        return elapsedMinutes
+
+valueOfEM = outputEntries()
+
+
 
 def stepthroughpages(posts, pageLink):
     driver.get(BASE_URL + pageLink)
