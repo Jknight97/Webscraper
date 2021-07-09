@@ -8,7 +8,6 @@ import pandas as pd
 mydb = mysql.connector.connect(
     host = "localhost",
     user = "JKnight",
-    password = "Coderboygobrrr42069",
     database = "scraperdb", autocommit=True
 )
 
