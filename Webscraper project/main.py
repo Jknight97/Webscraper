@@ -88,7 +88,7 @@ driver.quit()
         #dates.sort(key=lambda date: datetime.strptime(date, "%d-%b-%y"))
         
 
-# .extend function allows me to create a big ass list by adding list elements to already existing li elements
+# .extend function allows me to create a big list by adding list elements to already existing li elements
 #debug process
 #tried disabling terminal.integrated.inheritEnv in settings. Tried an empty print statement at the end. Tried starting without debugging. Tried exit(). Tried running in terminal after exit(). Tried running selected text. Tried running active file. 
 #issue resolved: s in StepThroughPages was not capitalized. Update: Disregard. Still flagged as invalid syntax. Tried assigning consistent lowercase, didn't work.
